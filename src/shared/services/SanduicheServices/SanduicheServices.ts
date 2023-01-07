@@ -1,5 +1,6 @@
 import { Api } from "../axios-config"
-export interface ICardDetails {
+
+export interface ISanduicheDetails {
    id: number;
    title: string;
    description: string;
@@ -9,17 +10,17 @@ export interface ICardDetails {
    }
 }
 
-export interface ICardWithTotalCount {
-   data: ICardDetails[];
+export interface ISanduicheWithTotalCount {
+   data: ISanduicheDetails[];
    totalCount: number;
 }
 
 export const MAX_LIMIT = 8
 
 
-const getAll = async (page = 1, filter = ''): Promise<ICardWithTotalCount | Error> => {
+const getAll = async (page = 1, filter = ''): Promise<ISanduicheWithTotalCount | Error> => {
    try {
-      const RealativeUrl = `/cards?_page=${page}&_limit=${MAX_LIMIT}&title_like=${filter}`;
+      const RealativeUrl = `/sanduiches?_page=${page}&_limit=${MAX_LIMIT}&title_like=${filter}`;
       const { data, headers } = await Api.get(RealativeUrl);
 
       if (data) {
@@ -36,9 +37,9 @@ const getAll = async (page = 1, filter = ''): Promise<ICardWithTotalCount | Erro
    }
 };
 
-const getById = async (id: number): Promise<ICardDetails | Error> => {
+const getById = async (id: number): Promise<ISanduicheDetails | Error> => {
    try {
-      const { data } = await Api.get(`/cards/${id}`);
+      const { data } = await Api.get(`/sanduiches/${id}`);
 
       if (data) {
          return data;
@@ -50,9 +51,9 @@ const getById = async (id: number): Promise<ICardDetails | Error> => {
    }
 };
 
-const create = async (dados: Omit<ICardDetails, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<ISanduicheDetails, 'id'>): Promise<number | Error> => {
    try {
-      const { data } = await Api.post(`/cards/`, dados);
+      const { data } = await Api.post(`/sanduiches/`, dados);
 
       if (data) {
          return data.id;
@@ -66,7 +67,7 @@ const create = async (dados: Omit<ICardDetails, 'id'>): Promise<number | Error> 
 
 const deleteById = async (id: number): Promise<void | Error> => {
    try {
-      await Api.delete(`/cards/${id}`);
+      await Api.delete(`/sanduiches/${id}`);
 
    } catch (err) {
       console.log(err);
@@ -75,9 +76,9 @@ const deleteById = async (id: number): Promise<void | Error> => {
 }
 
 
-const updatdById = async (id: number, dados: ICardDetails): Promise<void | Error> => {
+const updatdById = async (id: number, dados: ISanduicheDetails): Promise<void | Error> => {
    try {
-      await Api.put(`/cards/${id}`, dados);
+      await Api.put(`/sanduiches/${id}`, dados);
 
    } catch (err) {
       console.log(err);
@@ -86,7 +87,7 @@ const updatdById = async (id: number, dados: ICardDetails): Promise<void | Error
 }
 
 
-export const CardsServices = {
+export const SanduichesServices = {
    getAll,
    getById,
    create,
