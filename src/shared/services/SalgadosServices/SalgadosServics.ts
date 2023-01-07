@@ -1,17 +1,9 @@
 import { Api } from "../axios-config"
+import { handleSubmitProps } from '../typy'
 
-export interface ISalgadoDetails {
-   id: number;
-   title: string;
-   description: string;
-   image: {
-      alt: string
-      src: string;
-   }
-}
 
 export interface ISalgadoWithTotalCount {
-   data: ISalgadoDetails[];
+   data: handleSubmitProps[];
    totalCount: number;
 }
 
@@ -37,7 +29,7 @@ const getAll = async (page = 1, filter = ''): Promise<ISalgadoWithTotalCount | E
    }
 };
 
-const getById = async (id: number): Promise<ISalgadoDetails | Error> => {
+const getById = async (id: number): Promise<handleSubmitProps | Error> => {
    try {
       const { data } = await Api.get(`/salgados/${id}`);
 
@@ -51,7 +43,7 @@ const getById = async (id: number): Promise<ISalgadoDetails | Error> => {
    }
 };
 
-const create = async (dados: Omit<ISalgadoDetails, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<handleSubmitProps, 'id'>): Promise<number | Error> => {
    try {
       const { data } = await Api.post(`/salgados/`, dados);
 
@@ -76,7 +68,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
 }
 
 
-const updatdById = async (id: number, dados: ISalgadoDetails): Promise<void | Error> => {
+const updatdById = async (id: number, dados: handleSubmitProps): Promise<void | Error> => {
    try {
       await Api.put(`/salgados/${id}`, dados);
 

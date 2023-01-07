@@ -1,17 +1,9 @@
 import { Api } from "../axios-config"
+import { handleSubmitProps } from '../typy'
 
-export interface IPizzasDetails {
-   id: number;
-   title: string;
-   description: string;
-   image: {
-      alt: string
-      src: string;
-   }
-}
 
 export interface IPizzasWithTotalCount {
-   data: IPizzasDetails[];
+   data: handleSubmitProps[];
    totalCount: number;
 }
 
@@ -37,7 +29,7 @@ const getAll = async (page = 1, filter = ''): Promise<IPizzasWithTotalCount | Er
    }
 };
 
-const getById = async (id: number): Promise<IPizzasDetails | Error> => {
+const getById = async (id: number): Promise<handleSubmitProps | Error> => {
    try {
       const { data } = await Api.get(`/pizzas/${id}`);
 
@@ -51,7 +43,7 @@ const getById = async (id: number): Promise<IPizzasDetails | Error> => {
    }
 };
 
-const create = async (dados: Omit<IPizzasDetails, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<handleSubmitProps, 'id'>): Promise<number | Error> => {
    try {
       const { data } = await Api.post(`/pizzas/`, dados);
 
@@ -76,7 +68,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
 }
 
 
-const updatdById = async (id: number, dados: IPizzasDetails): Promise<void | Error> => {
+const updatdById = async (id: number, dados: handleSubmitProps): Promise<void | Error> => {
    try {
       await Api.put(`/pizzas/${id}`, dados);
 

@@ -108,7 +108,7 @@ export const CategoryOne = () => {
                {data && data.map(item => (
                   <CardCustom key={item.id} card={item} />
                ))}
-               {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
+
             </Grid>
             <Box
                marginY="2rem"
@@ -135,6 +135,7 @@ export const CategoryOne = () => {
 
                {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
             </Box>
+            {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
          </Box>
       </LayoutDefault>
    )

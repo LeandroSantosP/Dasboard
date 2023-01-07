@@ -1,17 +1,8 @@
 import { Api } from "../axios-config"
-
-export interface ISanduicheDetails {
-   id: number;
-   title: string;
-   description: string;
-   image: {
-      alt: string
-      src: string;
-   }
-}
+import { handleSubmitProps } from '../typy'
 
 export interface ISanduicheWithTotalCount {
-   data: ISanduicheDetails[];
+   data: handleSubmitProps[];
    totalCount: number;
 }
 
@@ -37,7 +28,7 @@ const getAll = async (page = 1, filter = ''): Promise<ISanduicheWithTotalCount |
    }
 };
 
-const getById = async (id: number): Promise<ISanduicheDetails | Error> => {
+const getById = async (id: number): Promise<handleSubmitProps | Error> => {
    try {
       const { data } = await Api.get(`/sanduiches/${id}`);
 
@@ -51,7 +42,7 @@ const getById = async (id: number): Promise<ISanduicheDetails | Error> => {
    }
 };
 
-const create = async (dados: Omit<ISanduicheDetails, 'id'>): Promise<number | Error> => {
+const create = async (dados: Omit<handleSubmitProps, 'id'>): Promise<number | Error> => {
    try {
       const { data } = await Api.post(`/sanduiches/`, dados);
 
@@ -76,7 +67,7 @@ const deleteById = async (id: number): Promise<void | Error> => {
 }
 
 
-const updatdById = async (id: number, dados: ISanduicheDetails): Promise<void | Error> => {
+const updatdById = async (id: number, dados: handleSubmitProps): Promise<void | Error> => {
    try {
       await Api.put(`/sanduiches/${id}`, dados);
 
