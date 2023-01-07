@@ -1,4 +1,4 @@
-import { ListIcon, Link as LinkChakra, Heading, Box, Badge, Text, Flex } from '@chakra-ui/react'
+import { Link as LinkChakra, Box, Text } from '@chakra-ui/react'
 
 export interface NavigationItem {
    type: string;
@@ -17,10 +17,10 @@ export const NavItem = (navOptions: NavItemProps) => {
       <Box display="flex" flexDirection="column" gap={5} w="full" mt={3}>
          {navOptions && navOptions.data.map(item => (
             <LinkChakra
+               key={item.label}
                display="flex"
                alignItems="center"
                justifyContent="flex-start"
-               key={item.label}
                bg="gray.300"
                marginX={5}
                borderRadius={5}

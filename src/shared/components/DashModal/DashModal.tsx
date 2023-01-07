@@ -1,14 +1,22 @@
 import {
    FormControl,
    FormLabel,
-   FormErrorMessage,
    FormHelperText,
    Input,
    Box,
    VStack,
+   Button,
 } from '@chakra-ui/react'
+import { RxCross2 } from 'react-icons/rx'
 
-export const DashBoard = () => {
+interface DashBoardProps {
+   showDasBoard?: () => void;
+}
+
+
+export const DashBoard = ({ showDasBoard }: DashBoardProps) => {
+
+
    return (
       <Box
          display="flex"
@@ -29,8 +37,9 @@ export const DashBoard = () => {
             bgColor="#fff"
             width="600px"
             height="600px"
+            position="relative"
          >
-
+            <Button onClick={showDasBoard} position="absolute" top=".7rem" right="1rem"><RxCross2 /></Button>
             <FormControl>
                <FormLabel>Email address</FormLabel>
                <Input type='email' />

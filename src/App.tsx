@@ -4,6 +4,8 @@ import './index.css';
 import { SideMenu } from './shared/components/SideMenu';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
+import { SideBarProvider } from './shared/context';
+import { ThemeProvider } from '@mui/material';
 
 function App() {
 
@@ -20,12 +22,13 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />
-        <SideMenu>
-          <AppRoutes />
-        </SideMenu>
+        <SideBarProvider>
+          <Header />
+          <SideMenu>
+            <AppRoutes />
+          </SideMenu>
+        </SideBarProvider>
       </BrowserRouter>
-
     </div>
   )
 }
