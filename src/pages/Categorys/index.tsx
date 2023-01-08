@@ -1,20 +1,21 @@
-import { Box, Button, Grid, Progress, Text } from '@chakra-ui/react'
+import { Box, Button, Grid, Progress, Text, Wrap } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CardCustom } from '../../shared/components/Card'
 import { DeahBoard } from '../../shared/DashBoard'
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 import { LayoutDefault } from '../../shared/layout'
-import { ISalgadoDetails, SalgadosServices } from '../../shared/services/SalgadosServices/SalgadosServics'
+import { SalgadosServices } from '../../shared/services/SalgadosServices/SalgadosServics'
 import { useDebouse } from '../../shared/hooks/UseDebouse'
 import { ErroComponent } from '../../shared/components/Errorcompo/Error'
-import { DashBoard } from '../../shared/components/DashModal/DashModal'
 import { PizzasServices } from '../../shared/services/PizzasServices/PizzasServices'
 import { SanduichesServices } from '../../shared/services/SanduicheServices/SanduicheServices'
+import { handleSubmitProps } from '../../shared/services/typy'
+import { DashBoard } from '../../shared/components/DashModal/DashModal'
 
 export const CategoryOne = () => {
    const { id } = useParams();
-   const [data, setData] = useState<ISalgadoDetails[] | null>([])
+   const [data, setData] = useState<handleSubmitProps[] | null>([])
    const [showError, setShowError] = useState<boolean>(true);
    const [showModal, setShowModal] = useState<boolean>(false);
    const [currentPage, setCurrentPage] = useState(1);
@@ -22,7 +23,6 @@ export const CategoryOne = () => {
    const [error, setError] = useState<string>('');
    const [search, setSearch] = useState('');
    const { debouse } = useDebouse();
-
 
    useEffect(() => {
       switch (id) {
@@ -91,52 +91,53 @@ export const CategoryOne = () => {
       setShowModal(close => !close)
    }
 
-   return (
-      <LayoutDefault title='Salgados' toolbar={
-         <DeahBoard
-            handleOpenDashboard={() => setShowModal(oldvalue => !oldvalue)}
-            textSearch={search}
-            showModal
-            text={`DashBoard`}
-            handleChangeSearch={text => handleSearch(text)}
-         />
 
-      }>
-         {isLoading && <Progress isIndeterminate size='xs' colorScheme='#111' />}
-         <Box display="flex" flexDirection="column">
-            <Grid templateColumns='repeat(4, 2fr)' gap={5}>
-               {data && data.map(item => (
-                  <CardCustom key={item.id} card={item} />
-               ))}
+   if (id)
+      return (
+         <LayoutDefault title={id?.toString()} toolbar={
+            <DeahBoard
+               handleOpenDashboard={() => handleShowModalDashBoard()}
+               textSearch={search}
+               showModal
+               text={`DashBoard`}
+               handleChangeSearch={text => handleSearch(text)}
+            />
 
-            </Grid>
-            <Box
-               marginY="2rem"
-               display="flex"
-               gap={10}
-               alignItems="center"
-               width="full"
-               padding=".5rem"
-               borderRadius={4}
-               bgColor="green.200">
-               <Button
-                  size="sm"
-                  border="1px solid #111"
-                  color="#111"
-                  disabled={currentPage === 1 ? true : false}
-                  onClick={() => setCurrentPage(lastpage => lastpage - 1)}><AiOutlineArrowLeft /></Button>
-               <Button
-                  size="sm"
-                  border="1px solid #111"
-                  color="#111"
-                  disabled={data?.length === 0 ? true : false}
-                  onClick={() => setCurrentPage(lastpage => lastpage + 1)}><AiOutlineArrowRight /></Button>
-               <Text>Pagina atual {currentPage}</Text>
+         }>
+            {isLoading && <Progress isIndeterminate size='xs' colorScheme='#111' />}
+            <Box display="flex" flexDirection="column" >
+               <Wrap spacing="20px" align='center' >
+                  {data && data.map(item => (
+                     <CardCustom key={item.title} card={item} />
+                  ))}
 
-               {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
+               </Wrap>
+               <Box
+                  marginY="2rem"
+                  display="flex"
+                  gap={10}
+                  alignItems="center"
+                  width="full"
+                  padding=".5rem"
+                  borderRadius={4}
+                  bgColor="green.200">
+                  <Button
+                     size="sm"
+                     border="1px solid #111"
+                     color="#111"
+                     disabled={currentPage === 1 ? true : false}
+                     onClick={() => setCurrentPage(lastpage => lastpage - 1)}><AiOutlineArrowLeft /></Button>
+                  <Button
+                     size="sm"
+                     border="1px solid #111"
+                     color="#111"
+                     disabled={data?.length === 0 ? true : false}
+                     onClick={() => setCurrentPage(lastpage => lastpage + 1)}><AiOutlineArrowRight /></Button>
+                  <Text>Pagina atual {currentPage}</Text>
+                  {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
+                  {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
+               </Box>
             </Box>
-            {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
-         </Box>
-      </LayoutDefault>
-   )
+         </LayoutDefault>
+      )
 }

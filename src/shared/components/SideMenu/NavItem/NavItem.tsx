@@ -24,13 +24,13 @@ export const NavItem = (navOptions: NavItemProps) => {
                bg="gray.300"
                marginX={5}
                borderRadius={5}
-               padding={[2, 7, 7]}
+               padding={[1, 2, 4]}
                fontSize={15}
                transition=".4s"
                gap={5}
                _hover={{
-                  background: "white",
-                  color: "#111   ",
+                  background: "#111",
+                  color: "#fff   ",
                }}
                href={item.path}>
                <Text fontSize={20}>

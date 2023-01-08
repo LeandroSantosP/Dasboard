@@ -7,7 +7,7 @@ export interface IPizzasWithTotalCount {
    totalCount: number;
 }
 
-export const MAX_LIMIT = 8
+export const MAX_LIMIT = 9
 
 
 const getAll = async (page = 1, filter = ''): Promise<IPizzasWithTotalCount | Error> => {

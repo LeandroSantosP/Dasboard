@@ -8,7 +8,6 @@ interface LayoutDefault {
    toolbar?: React.ReactNode;
 }
 export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
-
    return (
       <Box display="flex" flexDirection="column" height="100%" w="full" >
          <Box
@@ -19,14 +18,14 @@ export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
             marginBottom={30}
             bgColor="green.200"
          >
-            <Heading flex="1" size="3xl" fontSize="2rem">{title}</Heading>
+            <Heading flex="1" marginRight="1rem" fontSize={["10px", "16px", "20px"]} sx={{}}>{title.toUpperCase()}</Heading>
             {toolbar && (
                (toolbar)
             )}
          </Box>
 
 
-         <Flex direction="column" gap={6}>
+         <Flex direction="column">
             {children}
          </Flex>
       </Box >

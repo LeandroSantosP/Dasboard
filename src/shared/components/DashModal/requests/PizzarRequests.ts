@@ -1,7 +1,7 @@
 import { PizzasServices } from "../../../services/PizzasServices/PizzasServices"
-import { handleSubmitProps } from "../../../services/typy"
+import { handleSubmitSimpleProps } from "../../../services/typy"
 
-export const requestPizza = async (data: handleSubmitProps) => {
+export const requestPizza = async (data: handleSubmitSimpleProps) => {
    return PizzasServices.create(data).then(res => {
       if (res instanceof Error) {
          return res.message

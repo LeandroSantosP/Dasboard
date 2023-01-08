@@ -27,10 +27,11 @@ export const DeahBoard = ({
          gap={10}
       >
          <Input
-            maxW="20rem"
+            maxW={["sm", "md", "lg"]}
             border="1px solid #111"
+            backgroundColor="#fff"
             placeholder="Pesquise por algo"
-            focusBorderColor="gray.500"
+            focusBorderColor="#111"
             size="sm"
             margin="0 auto"
             value={textSearch}
@@ -39,7 +40,7 @@ export const DeahBoard = ({
          {showModal && (
             <Button
                colorScheme='gray'
-               fontSize={10}
+               fontSize={"10px"}
                onClick={handleOpenDashboard}>
                {text}
             </Button>
