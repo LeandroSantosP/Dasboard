@@ -6,7 +6,7 @@ import {
    Progress,
 } from '@chakra-ui/react';
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { handleSubmitSimpleProps } from '../../services/typy';
 import { FormHandles } from '@unform/core';
 import { requestSalgados } from './requests/';
@@ -38,10 +38,9 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
          src: yup.string().required('O campo e obrigratorio!')
       }),
       available: yup.string().required('O campo e obrigratorio!'),
-   })
+   });
 
    const handleSubmit = (data: handleSubmitSimpleProps, { reset }: any) => {
-
       formValidationSchema.validate(data, { abortEarly: false })
          .then((validationForm) => {
 
@@ -59,7 +58,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
                return
             } else if (id === 'sanduiches') {
                requestSanduiches(validationForm).then(res => setResults(res));
-               showDashBoard?.()
+               showDashBoard?.();
 
                reset()
                return
@@ -78,8 +77,8 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
                formRef.current?.setErrors(errorMessage);
             }
          })
-   };
 
+   };
 
    return (
       <Box

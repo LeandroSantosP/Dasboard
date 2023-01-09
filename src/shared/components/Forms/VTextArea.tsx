@@ -25,9 +25,8 @@ export const VTextArea = ({ name, title, placeholder }: VtextArea) => {
          <FormLabel width="full" fontSize="1rem" textDecoration="underline">{title}</FormLabel>
          <textarea
             placeholder={placeholder}
-            style={{ border: "1px solid #111", borderRadius: ".5rem", padding: "1rem", backgroundColor: "" }}
+            style={{ border: "1px solid #111", borderRadius: ".5rem", padding: "1rem", backgroundColor: "", width: "100%" }}
             rows={20}
-            cols={50}
             defaultValue={defaultValue}
             ref={refSelect}
             onKeyDown={() => clearError()}

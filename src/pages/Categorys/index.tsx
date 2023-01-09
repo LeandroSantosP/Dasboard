@@ -76,12 +76,13 @@ export const CategoryOne = () => {
             break
 
       }
-   }, [currentPage, search, error]);
+   }, [currentPage, search, error, showModal]);
 
    function handleSearch(search: string) {
       setCurrentPage(1)
       setSearch(search);
    }
+
    function handleCloseModalError() {
       setShowError(close => !close)
    }
@@ -89,7 +90,6 @@ export const CategoryOne = () => {
    function handleShowModalDashBoard() {
       setShowModal(close => !close)
    }
-
 
    const handledeletes = (id: number) => {
       if (confirm("Realment deseja Apagar?")) {
@@ -129,7 +129,6 @@ export const CategoryOne = () => {
          }
       }
    }
-
 
    return (
       <LayoutDefault title={category?.toString()} toolbar={
