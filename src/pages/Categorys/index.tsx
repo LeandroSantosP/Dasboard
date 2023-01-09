@@ -14,7 +14,7 @@ import { handleSubmitProps } from '../../shared/services/typy'
 import { DashBoard } from '../../shared/components/DashModal/DashModal'
 
 export const CategoryOne = () => {
-   const { id } = useParams();
+   const { id: category } = useParams();
    const [data, setData] = useState<handleSubmitProps[] | null>([])
    const [showError, setShowError] = useState<boolean>(true);
    const [showModal, setShowModal] = useState<boolean>(false);
@@ -25,7 +25,7 @@ export const CategoryOne = () => {
    const { debouse } = useDebouse();
 
    useEffect(() => {
-      switch (id) {
+      switch (category) {
          case 'salgados':
             debouse(() => {
                setIsLoading(true)
@@ -34,10 +34,10 @@ export const CategoryOne = () => {
                      setIsLoading(false)
                   }, 500);
                   if (result instanceof Error) {
-                     setError(result.message)
+                     return setError(result.message)
 
                   } else {
-                     setData(result.data)
+                     return setData(result.data)
                   }
                })
             })
@@ -53,7 +53,7 @@ export const CategoryOne = () => {
                   if (result instanceof Error) {
                      setError(result.message)
                   } else {
-                     setData(result.data)
+                     return setData(result.data)
                   }
                })
             })
@@ -69,20 +69,19 @@ export const CategoryOne = () => {
                   if (result instanceof Error) {
                      setError(result.message)
                   } else {
-                     setData(result.data)
+                     return setData(result.data)
                   }
                })
             })
             break
 
       }
-   }, [currentPage, search]);
+   }, [currentPage, search, error]);
 
    function handleSearch(search: string) {
       setCurrentPage(1)
       setSearch(search);
    }
-
    function handleCloseModalError() {
       setShowError(close => !close)
    }
@@ -92,8 +91,48 @@ export const CategoryOne = () => {
    }
 
 
+   const handledeletes = (id: number) => {
+      if (confirm("Realment deseja Apagar?")) {
+         switch (category) {
+            case 'salgados':
+               SalgadosServices.deleteById(id).then(result => {
+                  if (result instanceof Error) {
+                     alert(result.message);
+                  } else {
+                     setData(oldvalue => [...oldvalue!.filter(oldinfo => oldinfo.id !== id)]);
+                     alert('Registro apagado com sucesso!');
+                  }
+               })
+               break;
+
+            case 'pizzas':
+               PizzasServices.deleteById(id).then(result => {
+                  if (result instanceof Error) {
+                     alert(result.message)
+                  } else {
+                     setData(oldvalue => [...oldvalue!.filter(oldinfo => oldinfo.id !== id)])
+                     alert('Registro apagado com sucesso!');
+                  }
+               })
+               break;
+
+            case 'sanduiches':
+               SanduichesServices.deleteById(id).then(result => {
+                  if (result instanceof Error) {
+                     setError(result.message);
+                  } else {
+                     setData(oldvalue => [...oldvalue!.filter(oldinfo => oldinfo.id !== id)])
+                     alert('Registro apagado com sucesso!');
+                  }
+               });
+               break;
+         }
+      }
+   }
+
+
    return (
-      <LayoutDefault title={id?.toString()} toolbar={
+      <LayoutDefault title={category?.toString()} toolbar={
          <DeahBoard
             handleOpenDashboard={() => handleShowModalDashBoard()}
             textSearch={search}
@@ -107,7 +146,7 @@ export const CategoryOne = () => {
          <Box display="flex" flexDirection="column" w="full" >
             <Wrap spacing="20px">
                {data && data.map(item => (
-                  <CardCustom key={item.title} card={item} />
+                  <CardCustom handledelete={() => handledeletes(item.id)} key={item.title} card={item} />
                ))}
 
             </Wrap>
@@ -133,7 +172,7 @@ export const CategoryOne = () => {
                   disabled={data?.length === 0 ? true : false}
                   onClick={() => setCurrentPage(lastpage => lastpage + 1)}><AiOutlineArrowRight /></Button>
                <Text>Pagina atual {currentPage}</Text>
-               {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
+               {showModal && <DashBoard showDasBoard={() => handleShowModalDashBoard()} />}
                {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
             </Box>
          </Box>

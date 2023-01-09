@@ -49,7 +49,6 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
    const oldValue = resquestGetAll(id, category);
 
    const handleSubmit = (data: handleSubmitProps) => {
-
       formValidationSchema.validate(data, { abortEarly: false })
          .then((validateData) => {
             switch (category) {
@@ -130,11 +129,13 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                )}
                <VTextArea name="description" />
                <VInput name='image.alt' placeholder="Editar texto alternativo do imagem" />
-               <Button onClick={handleUpdateCard} top=".7rem" right="1rem" position="absolute" ><RxCross2 /></Button>
+               <Button onClick={() => handleUpdateCard()} top=".7rem" right="1rem" position="absolute" ><RxCross2 /></Button>
+
                <Box width="full" display="flex" justifyContent="space-evenly" paddingRight="2rem" >
                   <VSelect name="available" />
                   <Button type='submit' height="50px" border="2px solid #111" borderRadius="4px" _hover={{ bgColor: "green.200", transition: ".3s" }}>Salvar</Button>
                </Box>
+
             </VStack>
          </Form>
 

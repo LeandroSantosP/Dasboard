@@ -8,7 +8,7 @@ import { SideBarProvider } from './shared/context';
 function App() {
 
   return (
-    <div>
+    <>
       <BrowserRouter>
         <SideBarProvider>
           <Header />
@@ -17,7 +17,7 @@ function App() {
           </SideMenu>
         </SideBarProvider>
       </BrowserRouter>
-    </div>
+    </>
   )
 }
 

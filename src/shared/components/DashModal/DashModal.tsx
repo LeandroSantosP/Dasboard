@@ -26,9 +26,8 @@ interface DashBoardProps {
 }
 
 export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
-   const [results, setResults] = useState<string | number>();
-   const [isLoading, setIsLoading] = useState(false);
-   const formRef = useRef<FormHandles>(null)
+   const [results, setResults] = useState<string | number>('');
+   const formRef = useRef<FormHandles>(null);
    const { id } = useParams();
 
    const formValidationSchema: yup.SchemaOf<handleSubmitSimpleProps> = yup.object().shape({
@@ -45,7 +44,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
 
       formValidationSchema.validate(data, { abortEarly: false })
          .then((validationForm) => {
-            setIsLoading(true)
+
             if (id === 'salgados') {
                requestSalgados(validationForm).then(res => setResults(res));
                showDashBoard?.()
@@ -55,11 +54,13 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
             } else if (id === 'pizzas') {
                requestPizza(validationForm).then(res => setResults(res));
                showDashBoard?.()
+
                reset()
                return
             } else if (id === 'sanduiches') {
                requestSanduiches(validationForm).then(res => setResults(res));
                showDashBoard?.()
+
                reset()
                return
             }
@@ -78,6 +79,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
             }
          })
    };
+
 
    return (
       <Box
@@ -106,16 +108,19 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
 
                <VInput name='title' title='Titulo' placeholder='titulo' />
 
-               {/* <VInput /> */}
                <VTextArea name='description' title="Descricao" placeholder="Digite aqui uma descricao do produto..." />
 
                <VInput name='image.src' title='Url da imagem' placeholder='http://www.example.com/image1.jpg' />
 
                <VInput name='image.alt' title='Imagem alternativa' placeholder='Uma imagem de ...' />
-               <Button onClick={showDashBoard} position="absolute" top=".7rem" right="1rem"><RxCross2 /></Button>
-               <Box width="full" display="flex" justifyContent="space-evenly" paddingRight="2rem">
-                  <VSelect title='fsdfsdf' name="available" />
-                  <Button type='submit' height="50px" border="2px solid #111" _hover={{ bgColor: "green.200", transition: ".3s" }}>Enviar</Button>
+               <Button onClick={() => showDashBoard?.()} position="absolute" top=".7rem" right="1rem"><RxCross2 /></Button>
+               <Box width="full" display="flex" alignContent="center">
+                  <Box>
+                     <VSelect title='fsdfsdf' name="available" />
+                  </Box>
+                  <Box>
+                     <Button type='submit' height="50px" border="2px solid #111" _hover={{ bgColor: "green.200", transition: ".3s" }}>Enviar</Button>
+                  </Box>
                </Box>
             </VStack>
          </Form>

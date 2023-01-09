@@ -24,7 +24,7 @@ export const VSelect = ({ name, title }: InputProps) => {
 
 
    return (
-      <Box fontSize="1xl">
+      <>
          <select
             defaultValue={defaultValue}
             ref={refSelect}
@@ -34,6 +34,6 @@ export const VSelect = ({ name, title }: InputProps) => {
             <option defaultChecked>Esgotado</option>
          </select>
          {error && <span style={{ fontSize: "12px" }}>{error}</span>}
-      </Box >
+      </ >
    )
 }
