@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 interface LayoutDefault {
    children: React.ReactNode;
-   title: string;
+   title: string | undefined;
 
    toolbar?: React.ReactNode;
 }
@@ -16,16 +16,17 @@ export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
             p={4}
             borderRadius={3}
             marginBottom={30}
+            width="full"
             bgColor="green.200"
          >
-            <Heading flex="1" marginRight="1rem" fontSize={["10px", "16px", "20px"]} sx={{}}>{title.toUpperCase()}</Heading>
+            <Heading flex="1" marginRight="1rem" fontSize={["10px", "16px", "20px"]} sx={{}}>{title?.toUpperCase()}</Heading>
             {toolbar && (
                (toolbar)
             )}
          </Box>
 
 
-         <Flex direction="column">
+         <Flex direction="column" width="full">
             {children}
          </Flex>
       </Box >

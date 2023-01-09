@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 
 interface Props {
    name: string;
-   title: string;
+   title?: string;
 }
 
 type InputProps = JSX.IntrinsicElements['input'] & Props

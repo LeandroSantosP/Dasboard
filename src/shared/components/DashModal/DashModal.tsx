@@ -6,20 +6,20 @@ import {
    Progress,
 } from '@chakra-ui/react';
 
-import { FormHandles } from '@unform/core';
-import { Form } from '@unform/web';
 import React, { useRef } from 'react';
+import { handleSubmitSimpleProps } from '../../services/typy';
+import { FormHandles } from '@unform/core';
+import { requestSalgados } from './requests/';
+import { requestPizza } from './requests/';
+import { requestSanduiches } from './requests/';
 import { useState } from 'react';
 import { RxCross2 } from 'react-icons/rx'
 import { useParams } from 'react-router-dom';
-import { VInput } from '../Forms';
-import * as yup from 'yup'
-import { requestSalgados } from './requests/SalgadosRequest';
-import { handleSubmitProps, handleSubmitSimpleProps } from '../../services/typy';
+import { VInput, VTextArea } from '../Forms';
+import { Form } from '@unform/web';
 import { IFormErros } from './typeError';
-import { requestPizza } from './requests/PizzarRequests';
-import { requestSanduiches } from './requests/SanduichesRequest';
 import { VSelect } from '../Forms/VSelect';
+import * as yup from 'yup'
 
 interface DashBoardProps {
    showDasBoard?: () => void;
@@ -29,7 +29,6 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
    const [results, setResults] = useState<string | number>();
    const [isLoading, setIsLoading] = useState(false);
    const formRef = useRef<FormHandles>(null)
-   const [error, setError] = useState('');
    const { id } = useParams();
 
    const formValidationSchema: yup.SchemaOf<handleSubmitSimpleProps> = yup.object().shape({
@@ -43,7 +42,6 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
    })
 
    const handleSubmit = (data: handleSubmitSimpleProps, { reset }: any) => {
-      console.log(data);
 
       formValidationSchema.validate(data, { abortEarly: false })
          .then((validationForm) => {
@@ -51,6 +49,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
             if (id === 'salgados') {
                requestSalgados(validationForm).then(res => setResults(res));
                showDashBoard?.()
+
                reset()
                return
             } else if (id === 'pizzas') {
@@ -66,7 +65,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
             }
 
             reset()
-            return setError('Rota nao encontrada');
+            return setResults('Rota nao encontrada');
          })
          .catch((errors) => {
             if (errors instanceof yup.ValidationError) {
@@ -103,16 +102,16 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
                height="600px"
                position="relative"
             >
-               {isLoading && <Progress />}
                <Heading>Novo Pedido</Heading>
 
-               <VInput name='title' title='Titulo' />
+               <VInput name='title' title='Titulo' placeholder='titulo' />
 
-               <VInput name='description' title='Descricao' />
+               {/* <VInput /> */}
+               <VTextArea name='description' title="Descricao" placeholder="Digite aqui uma descricao do produto..." />
 
-               <VInput name='image.src' title='Url da imagem' />
+               <VInput name='image.src' title='Url da imagem' placeholder='http://www.example.com/image1.jpg' />
 
-               <VInput name='image.alt' title='Imagem alternativa' />
+               <VInput name='image.alt' title='Imagem alternativa' placeholder='Uma imagem de ...' />
                <Button onClick={showDashBoard} position="absolute" top=".7rem" right="1rem"><RxCross2 /></Button>
                <Box width="full" display="flex" justifyContent="space-evenly" paddingRight="2rem">
                   <VSelect title='fsdfsdf' name="available" />

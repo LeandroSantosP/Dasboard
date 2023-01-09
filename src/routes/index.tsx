@@ -4,7 +4,7 @@ import { useSideBarContext } from "../shared/context";
 import { CiPizza } from 'react-icons/ci'
 import { MdFastfood } from 'react-icons/md'
 import { MdOutlineDashboard } from 'react-icons/md'
-import { CategoryOne } from "../pages/Categorys";
+import { CategoryOne } from "../pages/";
 
 export const AppRoutes = () => {
    const { setSideBarOptions } = useSideBarContext();

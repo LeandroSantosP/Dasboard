@@ -92,52 +92,51 @@ export const CategoryOne = () => {
    }
 
 
-   if (id)
-      return (
-         <LayoutDefault title={id?.toString()} toolbar={
-            <DeahBoard
-               handleOpenDashboard={() => handleShowModalDashBoard()}
-               textSearch={search}
-               showModal
-               text={`DashBoard`}
-               handleChangeSearch={text => handleSearch(text)}
-            />
+   return (
+      <LayoutDefault title={id?.toString()} toolbar={
+         <DeahBoard
+            handleOpenDashboard={() => handleShowModalDashBoard()}
+            textSearch={search}
+            showModal
+            text={`DashBoard`}
+            handleChangeSearch={text => handleSearch(text)}
+         />
 
-         }>
-            {isLoading && <Progress isIndeterminate size='xs' colorScheme='#111' />}
-            <Box display="flex" flexDirection="column" >
-               <Wrap spacing="20px" align='center' >
-                  {data && data.map(item => (
-                     <CardCustom key={item.title} card={item} />
-                  ))}
+      }>
+         {isLoading && <Progress isIndeterminate size='xs' colorScheme='#111' />}
+         <Box display="flex" flexDirection="column" w="full" >
+            <Wrap spacing="20px">
+               {data && data.map(item => (
+                  <CardCustom key={item.title} card={item} />
+               ))}
 
-               </Wrap>
-               <Box
-                  marginY="2rem"
-                  display="flex"
-                  gap={10}
-                  alignItems="center"
-                  width="full"
-                  padding=".5rem"
-                  borderRadius={4}
-                  bgColor="green.200">
-                  <Button
-                     size="sm"
-                     border="1px solid #111"
-                     color="#111"
-                     disabled={currentPage === 1 ? true : false}
-                     onClick={() => setCurrentPage(lastpage => lastpage - 1)}><AiOutlineArrowLeft /></Button>
-                  <Button
-                     size="sm"
-                     border="1px solid #111"
-                     color="#111"
-                     disabled={data?.length === 0 ? true : false}
-                     onClick={() => setCurrentPage(lastpage => lastpage + 1)}><AiOutlineArrowRight /></Button>
-                  <Text>Pagina atual {currentPage}</Text>
-                  {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
-                  {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
-               </Box>
+            </Wrap>
+            <Box
+               marginY="2rem"
+               display="flex"
+               gap={10}
+               alignItems="center"
+               width="full"
+               padding=".5rem"
+               borderRadius={4}
+               bgColor="green.200">
+               <Button
+                  size="sm"
+                  border="1px solid #111"
+                  color="#111"
+                  disabled={currentPage === 1 ? true : false}
+                  onClick={() => setCurrentPage(lastpage => lastpage - 1)}><AiOutlineArrowLeft /></Button>
+               <Button
+                  size="sm"
+                  border="1px solid #111"
+                  color="#111"
+                  disabled={data?.length === 0 ? true : false}
+                  onClick={() => setCurrentPage(lastpage => lastpage + 1)}><AiOutlineArrowRight /></Button>
+               <Text>Pagina atual {currentPage}</Text>
+               {showModal && <DashBoard showDasBoard={handleShowModalDashBoard} />}
+               {error && showError && <ErroComponent error={error} showErrorMessage={handleCloseModalError} />}
             </Box>
-         </LayoutDefault>
-      )
+         </Box>
+      </LayoutDefault>
+   )
 }

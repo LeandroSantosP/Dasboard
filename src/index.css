@@ -3,7 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  margin: 0 auto;
   font-family: "Roboto", sans-serif;
+  max-width: 1420px;
 }
 
 body {
