@@ -5,22 +5,26 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 import { SideBarProvider } from './shared/context';
 import { LoginAuth } from './pages';
+import { LoginProvider } from './shared/context/LoginContext';
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-        <LoginAuth>
-          <SideBarProvider>
+        <LoginProvider>
 
-            <Header />
-            <SideMenu>
-              <AppRoutes />
-            </SideMenu>
+          <LoginAuth>
+            <SideBarProvider>
 
-          </SideBarProvider>
-        </LoginAuth>
+              <Header />
+              <SideMenu>
+                <AppRoutes />
+              </SideMenu>
+
+            </SideBarProvider>
+          </LoginAuth>
+        </LoginProvider>
       </BrowserRouter>
     </>
   )

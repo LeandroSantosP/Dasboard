@@ -3,15 +3,16 @@ import { useEffect, useState } from "react"
 
 interface FlashMessageProps {
    message: string;
+   bgColor?: string
 }
 
-export const FlashMessage = ({ message }: FlashMessageProps) => {
+export const FlashMessage = ({ message, bgColor = "green.100" }: FlashMessageProps) => {
 
    return (
       <>
          <Box
             position="absolute"
-            bgColor="green.100"
+            bgColor={bgColor}
             borderY="1px solid #111"
             borderRadius=".5rem"
             width="200px"

@@ -1,13 +1,19 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom"
 import { useSideBarContext } from "../shared/context";
 import { CiPizza } from 'react-icons/ci'
 import { MdFastfood } from 'react-icons/md'
 import { MdOutlineDashboard } from 'react-icons/md'
-import { CategoryOne } from "../pages/";
+import { CategoryOne, LoginAuth } from "../pages/";
+import { useLoginContext } from "../shared/context/LoginContext";
 
 export const AppRoutes = () => {
    const { setSideBarOptions } = useSideBarContext();
+
+   const PrivateRoute = (Item: React.FC) => {
+      const { isAutorized } = useLoginContext()
+      return isAutorized ? <Item /> : <LoginAuth />
+   }
    useEffect(() => {
       setSideBarOptions([
          {
@@ -33,8 +39,8 @@ export const AppRoutes = () => {
 
    return (
       <Routes>
-         <Route path="/category/:id" element={<CategoryOne />} />
-         <Route path="*" element={<CategoryOne />} />
+         <Route path="/category/:id" element={PrivateRoute(CategoryOne)} />
+         <Route path="*" element={PrivateRoute(CategoryOne)} />
       </Routes>
    )
 } 

@@ -83,5 +83,43 @@
         "alt": "test"
       }
     }
+  ],
+  "users": [
+    {
+      "email": "leandro@example2.com",
+      "password": "123123",
+      "telephone": 9911111,
+      "access_token": "123123",
+      "address": {
+        "city": "Sao paulo",
+        "state": "SP",
+        "country": "Brazil"
+      },
+      "id": 1
+    },
+    {
+      "email": "leandro@example3.com",
+      "password": "123123",
+      "telephone": 9911111,
+      "access_token": "1231ddddddddddddddddd23",
+      "address": {
+        "city": "Sao paulo",
+        "state": "SP",
+        "country": "Brazil"
+      },
+      "id": 2
+    },
+    {
+      "email": "leandro@gmail.com",
+      "password": "1231231313",
+      "telephone": 315315315,
+      "access_token": "saddsadsabab",
+      "address": {
+        "city": "alemanha",
+        "state": "CA",
+        "country": "russia"
+      },
+      "id": 3
+    }
   ]
 }

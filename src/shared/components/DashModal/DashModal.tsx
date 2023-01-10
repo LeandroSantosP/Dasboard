@@ -70,6 +70,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
          .catch((errors) => {
             if (errors instanceof yup.ValidationError) {
                const errorMessage: IFormErros = {};
+
                errors.inner.forEach(err => {
                   if (!err.path) return;
                   errorMessage[err.path] = err.message;
