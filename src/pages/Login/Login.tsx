@@ -4,7 +4,7 @@ import { Form } from "@unform/web";
 import { useEffect, useRef, useState } from "react";
 import { } from "../../assets/banner.jpg"
 import { VInput } from "../../shared/components/Forms";
-import { useLoginContext } from "../../shared/context/LoginContext";
+import { useAuthContext } from "../../shared/context/AuthContext";
 import * as yup from 'yup'
 import { IFormErros } from "../../shared/components/DashModal/typeError";
 import { Resgister } from "../Register/Register";
@@ -45,7 +45,7 @@ const LoginFormSchema: yup.SchemaOf<loginFormProps> = yup.object().shape({
 export const LoginAuth = ({ children }: LoginProps) => {
    const [registerScreen, setRegisterScreen] = useState(false);
    const FormRef = useRef<FormHandles>(null);
-   const { login, isAutorized } = useLoginContext();
+   const { login, isAutorized } = useAuthContext();
 
    const handleLoginScreen = () => {
       setRegisterScreen(!registerScreen)

@@ -5,13 +5,13 @@ import { CiPizza } from 'react-icons/ci'
 import { MdFastfood } from 'react-icons/md'
 import { MdOutlineDashboard } from 'react-icons/md'
 import { CategoryOne, LoginAuth } from "../pages/";
-import { useLoginContext } from "../shared/context/LoginContext";
+import { useAuthContext } from "../shared/context/AuthContext";
 
 export const AppRoutes = () => {
    const { setSideBarOptions } = useSideBarContext();
 
    const PrivateRoute = (Item: React.FC) => {
-      const { isAutorized } = useLoginContext()
+      const { isAutorized } = useAuthContext()
       return isAutorized ? <Item /> : <LoginAuth />
    }
    useEffect(() => {

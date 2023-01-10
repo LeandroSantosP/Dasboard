@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import { customScrollball } from "../../styles/hellpes";
 import { AiFillEdit } from 'react-icons/ai';
@@ -38,8 +38,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
             direction="column"
             borderRadius={4}
             p=".5rem"
-            width="100%"
-            maxW={["320px", "200px", "320px"]}
+            w={["320px", "200px", "290px"]}
             height="350px"
             overflow="auto"
             css={customScrollball}
@@ -47,12 +46,12 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
             position="relative"
          >
             {showEditModal && <UpdataModal id={id} handleUpdateCard={handleOpenAndCloseUpdateCard} />}
-            {image && <Image borderRadius={4} marginBottom={4} src={image.src} alt={image.alt} />}
-            <Heading fontSize={"20px"} maxW={"100%"}>{title}</Heading>
+            {image && <Image borderRadius={4} marginBottom={1} src={image.src} alt={image.alt} />}
+            <Heading fontSize={"20px"} marginBottom={1} maxW={"100%"}>{title}</Heading>
             <Text flex="1" maxW={"100%"} fontSize={"12px"}>{description}</Text>
 
             <Flex
-               onClick={() => handleOpenAndCloseUpdateCard()}
+               onClick={handleOpenAndCloseUpdateCard}
                display="flex"
                justifyContent="center"
                height="30px"
@@ -62,7 +61,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
                borderRadius=".3rem"
                fontSize={"sm"}
                position="absolute"
-               left={["17.5rem", "10rem", "17.5rem"]}
+               left={["17.5rem", "10rem", "15.5rem"]}
                cursor="pointer"
                transition=".3s"
                _hover={{
@@ -83,7 +82,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
                borderRadius=".3rem"
                fontSize={"sm"}
                position="absolute"
-               left={["17.5rem", "10rem", "17.5rem"]}
+               left={["17.5rem", "10rem", "15.5rem"]}
                top="3rem"
                gap={".5rem"}
                cursor="pointer"

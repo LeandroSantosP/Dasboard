@@ -1,7 +1,8 @@
-import { Box, Button, Grid, Progress, Text, Wrap } from '@chakra-ui/react'
+import { Box, Button, Progress, Text, Wrap } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CardCustom } from '../../shared/components/Card'
+
 import { DeahBoard } from '../../shared/components/DashBoard'
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 import { LayoutDefault } from '../../shared/layout'
@@ -128,10 +129,12 @@ export const CategoryOne = () => {
                break;
          }
       }
-   }
+   };
+
 
    return (
       <LayoutDefault title={category?.toString()} toolbar={
+
          <DeahBoard
             handleOpenDashboard={() => handleShowModalDashBoard()}
             textSearch={search}
@@ -140,8 +143,9 @@ export const CategoryOne = () => {
             handleChangeSearch={text => handleSearch(text)}
          />
 
+
       }>
-         {isLoading && <Progress isIndeterminate size='xs' colorScheme='#111' />}
+         <Progress value={80} isIndeterminate colorScheme='#ff0000' />
          <Box display="flex" flexDirection="column" w="full" >
             <Wrap spacing="20px">
                {data && data.map(item => (
@@ -149,6 +153,7 @@ export const CategoryOne = () => {
                ))}
 
             </Wrap>
+
             <Box
                marginY="2rem"
                display="flex"

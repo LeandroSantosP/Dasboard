@@ -18,7 +18,7 @@ import { IFormErros } from "../DashModal/typeError";
 
 interface UpdateModalProps {
    id: number;
-   handleUpdateCard: () => void;
+   handleUpdateCard: () => void
 }
 
 export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
@@ -26,6 +26,7 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
    const formRef = useRef<FormHandles>(null);
    const { id: category } = useParams();
    const [showFlasMessage, setShowFlahMessage] = useState(false);
+   console.log(id);
 
 
    const formValidationSchema: yup.SchemaOf<handleSubmitSimpleProps> = yup.object().shape({

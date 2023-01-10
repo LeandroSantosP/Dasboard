@@ -14,11 +14,10 @@ import {
 } from 'react-icons/gi'
 import { BiLogOut } from 'react-icons/bi'
 import { Navigation } from "../SideMenu/Navigation/Navigation";
-import { useLoginContext } from "../../context/LoginContext";
+import { useAuthContext } from "../../context/AuthContext";
 
 export const Header = () => {
-   const { logout } = useLoginContext()
-
+   const { logout, userData } = useAuthContext();
 
    return (
       <Flex p="20px"

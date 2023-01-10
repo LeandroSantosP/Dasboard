@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes';
 import { SideBarProvider } from './shared/context';
 import { LoginAuth } from './pages';
-import { LoginProvider } from './shared/context/LoginContext';
+import { AuthProvider } from './shared/context/AuthContext';
 import { Resgister } from './pages/Register/Register';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <LoginProvider>
+        <AuthProvider>
 
 
           <LoginAuth>
@@ -26,7 +26,7 @@ function App() {
 
             </SideBarProvider>
           </LoginAuth>
-        </LoginProvider>
+        </AuthProvider>
       </BrowserRouter>
     </>
   )
