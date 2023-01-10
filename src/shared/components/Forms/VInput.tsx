@@ -36,7 +36,7 @@ export const VInput: React.FC<InputProps> = ({ name, title, padding = ".5rem", .
             ref={inputRef}
             onKeyDown={() => clearError()}
             defaultValue={defaultValue}
-            style={{ color: "#111", borderRadius: ".3rem", width: "100%", padding: padding }}
+            style={{ color: "#111", borderRadius: ".3rem", width: "100%", padding: padding, border: "1px solid #111" }}
          />
          {error && <span style={{ fontSize: "12px" }}>{error}</span>}
       </>

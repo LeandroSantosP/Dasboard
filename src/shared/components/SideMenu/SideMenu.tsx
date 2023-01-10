@@ -45,7 +45,6 @@ export const SideMenu: React.FC<SideMenuProps> = ({ children }) => {
          </Flex>
 
          <Flex w="100%" h="100%">
-            {/* <IconButton aria-label='Menu lateral' icon={<MdMenu />} position="absolute" top={40} onClick={() => null} /> */}
             {children}
          </Flex>
       </HStack>

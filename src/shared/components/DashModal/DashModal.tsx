@@ -99,12 +99,12 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
             <VStack
                borderRadius="1rem"
                p="2rem"
-               bgColor="#fff"
+               bgColor="gray.100"
                width={["300px", "400px", "600px"]}
                height="600px"
                position="relative"
             >
-               <Heading>Novo Pedido</Heading>
+               <Heading size={['sm', 'lg']} width="ful">Novo Pedido</Heading>
 
                <VInput name='title' title='Titulo' placeholder='titulo' />
 
@@ -114,12 +114,12 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
 
                <VInput name='image.alt' title='Imagem alternativa' placeholder='Uma imagem de ...' />
                <Button onClick={() => showDashBoard?.()} position="absolute" top=".7rem" right="1rem"><RxCross2 /></Button>
-               <Box width="full" display="flex" alignContent="center">
+               <Box width="full" display="flex" >
                   <Box>
                      <VSelect title='fsdfsdf' name="available" />
                   </Box>
                   <Box>
-                     <Button type='submit' height="50px" border="2px solid #111" _hover={{ bgColor: "green.200", transition: ".3s" }}>Enviar</Button>
+                     <Button type='submit' css={{ color: "#444", border: "1px solid #111", borderRadiu: "4px" }} height="50px" >Enviar</Button>
                   </Box>
                </Box>
             </VStack>

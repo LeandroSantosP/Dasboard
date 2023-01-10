@@ -26,7 +26,7 @@ export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
          </Box>
 
 
-         <Flex direction="column" width="full">
+         <Flex direction="column" width="full" flex="1">
             {children}
          </Flex>
       </Box >

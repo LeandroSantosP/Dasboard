@@ -1,5 +1,4 @@
-import { Box, Button, Flex, Input } from "@chakra-ui/react";
-import { useState } from "react";
+import { border, Box, Button, Flex, Input } from "@chakra-ui/react";
 
 interface DashBoardProps {
    text: string;
@@ -28,19 +27,20 @@ export const DeahBoard = ({
       >
          <Input
             maxW={["sm", "md", "lg"]}
-            border="1px solid #111"
-            backgroundColor="#fff"
             placeholder="Pesquise por algo"
             focusBorderColor="#111"
-            size="sm"
-            margin="0 auto"
+            outline="none"
+            variant="solid"
+            size="md"
             value={textSearch}
             onChange={(e) => handleChangeSearch?.(e.target.value)}
          />
          {showModal && (
             <Button
-               colorScheme='gray'
-               fontSize={"10px"}
+               size="md"
+               fontSize="1rem"
+               variant="solid"
+               transition=".4s"
                onClick={handleOpenDashboard}>
                {text}
             </Button>

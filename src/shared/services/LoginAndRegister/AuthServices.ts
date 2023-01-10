@@ -5,7 +5,6 @@ interface address {
    city: string;
    state: string;
    country: string;
-
 }
 
 interface RegisterServices {

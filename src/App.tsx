@@ -6,6 +6,7 @@ import { AppRoutes } from './routes';
 import { SideBarProvider } from './shared/context';
 import { LoginAuth } from './pages';
 import { LoginProvider } from './shared/context/LoginContext';
+import { Resgister } from './pages/Register/Register';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <LoginProvider>
+
 
           <LoginAuth>
             <SideBarProvider>

@@ -39,7 +39,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
             borderRadius={4}
             p=".5rem"
             width="100%"
-            maxW="320px"
+            maxW={["320px", "200px", "320px"]}
             height="350px"
             overflow="auto"
             css={customScrollball}
@@ -62,7 +62,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
                borderRadius=".3rem"
                fontSize={"sm"}
                position="absolute"
-               left="17.5rem"
+               left={["17.5rem", "10rem", "17.5rem"]}
                cursor="pointer"
                transition=".3s"
                _hover={{
@@ -83,7 +83,7 @@ export const CardCustom = ({ card, handledelete }: CardCustomProps) => {
                borderRadius=".3rem"
                fontSize={"sm"}
                position="absolute"
-               left="17.5rem"
+               left={["17.5rem", "10rem", "17.5rem"]}
                top="3rem"
                gap={".5rem"}
                cursor="pointer"

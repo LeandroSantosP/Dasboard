@@ -2,7 +2,7 @@ import { Box, Button, Grid, Progress, Text, Wrap } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CardCustom } from '../../shared/components/Card'
-import { DeahBoard } from '../../shared/DashBoard'
+import { DeahBoard } from '../../shared/components/DashBoard'
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 import { LayoutDefault } from '../../shared/layout'
 import { SalgadosServices } from '../../shared/services/SalgadosServices/SalgadosServics'
@@ -136,7 +136,7 @@ export const CategoryOne = () => {
             handleOpenDashboard={() => handleShowModalDashBoard()}
             textSearch={search}
             showModal
-            text={`DashBoard`}
+            text={`+`}
             handleChangeSearch={text => handleSearch(text)}
          />
 
