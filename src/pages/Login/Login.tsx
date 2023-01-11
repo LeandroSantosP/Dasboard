@@ -13,25 +13,6 @@ interface LoginProps {
    children?: React.ReactNode
 }
 
-const dados = {
-   email: "leandro@gmail.com",
-   password: "1231231313",
-   telephone: 315315315,
-   access_token: generateAccessToken(),
-   address: {
-      city: "alemanha",
-      state: "CA",
-      country: "russia",
-   }
-}
-
-
-function generateAccessToken() {
-   // Generate a random string of length 20
-   const token = Math.random().toString(36).substring(2, 30);
-   return token;
-}
-
 interface loginFormProps {
    email: string;
    password: string;

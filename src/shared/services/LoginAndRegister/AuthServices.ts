@@ -1,7 +1,7 @@
 import { Api } from "../axios-config";
 
 
-interface address {
+export interface address {
    city: string;
    state: string;
    country: string;
@@ -28,10 +28,10 @@ const RegisterServices = async (dados: RegisterServicesProps): Promise<string | 
       return new Error('Erro ao criar o usuario!');
    }
 }
-const getAllUserInfos = async (email: string, password: string): Promise<RegisterServicesProps[] | Error> => {
+const getAllUserInfos = async (email: string): Promise<RegisterServicesProps[] | Error> => {
 
    try {
-      const { data } = await Api.get(`/users?email_like=${email}&password=${password}`);
+      const { data } = await Api.get(`/users?email_like=${email}`);
 
       if (data) {
          return data;

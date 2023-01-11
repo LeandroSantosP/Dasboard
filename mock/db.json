@@ -54,9 +54,9 @@
     },
     {
       "id": 3,
-      "title": "3 um titulo qualquer",
+      "title": "3 um titulo qualquer test",
       "description": "descricaodescricaodescricaodescricaodescricaodescricao",
-      "available": "Esgotado",
+      "available": "Disponinvel",
       "image": {
         "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80",
         "alt": "ytest"
@@ -76,7 +76,7 @@
       "id": 5,
       "title": "5 um titulo qualquer",
       "description": "descricaodescricaodescricaodescricaodescricaodescricao",
-      "available": "Esgotado",
+      "available": "Disponinvel",
       "image": {
         "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80",
         "alt": "ytest"
@@ -86,7 +86,7 @@
       "id": 6,
       "title": "6 um titulo qualquer",
       "description": "descricaodescricaodescricaodescricaodescricaodescricao",
-      "available": "Esgotado",
+      "available": "Disponinvel",
       "image": {
         "src": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80",
         "alt": "ytest"
@@ -178,75 +178,40 @@
       "id": 1
     },
     {
-      "email": "leandro@example3.com",
-      "password": "123123",
-      "telephone": 9911111,
-      "access_token": "1231ddddddddddddddddd23",
+      "access_token": "1b3qijxs53n",
       "address": {
-        "city": "Sao paulo",
-        "state": "SP",
-        "country": "Brazil"
+        "city": "São Paulo",
+        "state": "Itaquecetuba/SP",
+        "country": "Brasil"
       },
+      "telephone": 11965414123,
+      "password": "test123d",
+      "email": "leandro@examdple2.com",
       "id": 2
     },
     {
-      "email": "leandro@gmail.com",
-      "password": "1231231313",
-      "telephone": 315315315,
-      "access_token": "saddsadsabab",
+      "access_token": "jil5a2e63",
       "address": {
-        "city": "alemanha",
-        "state": "CA",
-        "country": "russia"
+        "city": "São Paulo",
+        "state": "Itaquecetuba/SP",
+        "country": "Brasil"
       },
+      "telephone": 11965414123,
+      "password": "tes123",
+      "email": "leandro@exsample2.com",
       "id": 3
     },
     {
-      "email": "text@text.com",
-      "password": "password",
-      "telephone": 4332432423,
-      "access_token": "saddbsajkdsahjkbsabiad",
+      "access_token": "danbsw3ww78",
       "address": {
-        "city": "sao paulo",
-        "state": "sp",
-        "country": "brasil"
+        "city": "São Paulo",
+        "state": "Itaquecetuba/SP",
+        "country": "Brasil"
       },
+      "telephone": 11965414123,
+      "password": "dsasd",
+      "email": "leandro@exsadmple2.com",
       "id": 4
-    },
-    {
-      "email": "leadddndro@example2.com",
-      "password": "123123",
-      "telephone": 4332432423,
-      "access_token": "saddbsajkdsahjkbsabiad",
-      "address": {
-        "city": "sao paulo",
-        "state": "sp",
-        "country": "brasil"
-      },
-      "id": 5
-    },
-    {
-      "email": "leaddndro@example2.com",
-      "password": "123123",
-      "telephone": 4332432423,
-      "access_token": "saddbsajkdsahjkbsabiad",
-      "address": {
-        "city": "sao paulo",
-        "state": "sp",
-        "country": "brasil"
-      },
-      "id": 6
-    },
-    {
-      "email": "",
-      "password": "",
-      "telephone": "",
-      "address": {
-        "city": "",
-        "state": "",
-        "country": ""
-      },
-      "id": 7
     }
   ]
 }

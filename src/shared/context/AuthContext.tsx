@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from "react"
-import { AuthServices, RegisterServicesProps } from "../services/LoginAndRegister";
+import { address, AuthServices, RegisterServicesProps } from "../services/LoginAndRegister";
 
 interface LoginProviderProps {
    children: React.ReactNode;
@@ -64,8 +64,18 @@ export const AuthProvider = ({ children }: LoginProviderProps) => {
 
    //Register Camp;
 
+
+   interface RegisterServicesPropss {
+      email: string;
+      password: string;
+      telephone: number;
+      address: address;
+   };
+
+
    const handleRegister = useCallback(async (dados: RegisterServicesProps) => {
-      AuthServices.getAllUserInfos(dados.email, dados.password).then(result => {
+
+      const FinalResult = await AuthServices.getAllUserInfos(dados.email).then(result => {
          let allUserResgisteted: any;
 
          if (result instanceof Error) {
@@ -75,13 +85,19 @@ export const AuthProvider = ({ children }: LoginProviderProps) => {
          }
 
          if (allUserResgisteted != undefined && allUserResgisteted != null) {
-            console.log("Not Create account");
-            return;
+            return {
+               resultMessage: "Not Create account"
+            }
          } else {
-            console.log("Create Account");
-            AuthServices.RegisterServices(dados)
+            AuthServices.RegisterServices(dados);
+            return {
+               resultMessage: "Create Account"
+            }
          }
       });
+
+      return FinalResult;
+
    }, []);
 
    return (
