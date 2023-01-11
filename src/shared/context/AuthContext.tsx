@@ -64,15 +64,6 @@ export const AuthProvider = ({ children }: LoginProviderProps) => {
 
    //Register Camp;
 
-
-   interface RegisterServicesPropss {
-      email: string;
-      password: string;
-      telephone: number;
-      address: address;
-   };
-
-
    const handleRegister = useCallback(async (dados: RegisterServicesProps) => {
 
       const FinalResult = await AuthServices.getAllUserInfos(dados.email).then(result => {

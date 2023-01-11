@@ -8,20 +8,8 @@ import { useAuthContext } from "../../shared/context/AuthContext";
 import * as yup from 'yup'
 import { IFormErros } from "../../shared/components/DashModal/typeError";
 import { Resgister } from "../Register/Register";
-
-interface LoginProps {
-   children?: React.ReactNode
-}
-
-interface loginFormProps {
-   email: string;
-   password: string;
-}
-
-const LoginFormSchema: yup.SchemaOf<loginFormProps> = yup.object().shape({
-   password: yup.string().required('A senha e obrigatorio'),
-   email: yup.string().email('Degite um email valido').required('O email e obrigatorio'),
-});
+import { loginFormProps, LoginProps } from "./loginType";
+import { LoginFormSchema } from "./yupSchemaLogin";
 
 export const LoginAuth = ({ children }: LoginProps) => {
    const [registerScreen, setRegisterScreen] = useState(false);
