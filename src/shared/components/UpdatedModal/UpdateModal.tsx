@@ -26,8 +26,6 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
    const formRef = useRef<FormHandles>(null);
    const { id: category } = useParams();
    const [showFlasMessage, setShowFlahMessage] = useState(false);
-   console.log(id);
-
 
    const formValidationSchema: yup.SchemaOf<handleSubmitSimpleProps> = yup.object().shape({
       title: yup.string().required('O campo e obrigratorio').min(3, 'O Campo deve Conter no minimo 3 letras!'),
@@ -97,6 +95,9 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
          })
    };
 
+   console.log(showFlasMessage);
+
+
    return (
       <Box
          position="fixed"
@@ -133,12 +134,19 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                <Button onClick={() => handleUpdateCard()} top=".7rem" right="1rem" position="absolute" ><RxCross2 /></Button>
 
                <Box width="full" display="flex" justifyContent="space-evenly" paddingRight="2rem" >
-                  <VSelect name="available" />
-                  <Button type='submit' height="50px" border="2px solid #111" borderRadius="4px" _hover={{ bgColor: "green.200", transition: ".3s" }}>Salvar</Button>
+                  <Box>
+                     <VSelect name="available" />
+
+                  </Box>
+                  <Box>
+                     <Button type='submit' height="50px" border="2px solid #111" borderRadius="4px" _hover={{ bgColor: "green.200", transition: ".3s" }}>Salvar</Button>
+                  </Box>
                </Box>
 
             </VStack>
          </Form>
+         {error && <FlashMessage message={error} bgColor="red.100" />}
+
 
       </Box >
    )

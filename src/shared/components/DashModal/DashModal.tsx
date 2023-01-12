@@ -104,7 +104,7 @@ export const DashBoard = ({ showDasBoard: showDashBoard }: DashBoardProps) => {
                height="600px"
                position="relative"
             >
-               <Heading size={['sm', 'lg']} width="ful">Novo Pedido</Heading>
+               <Heading size={['sm', 'lg']} width="ful">Adicionar novo Card</Heading>
 
                <VInput name='title' title='Titulo' placeholder='titulo' />
 

@@ -25,6 +25,7 @@ export const CategoryOne = () => {
    const [search, setSearch] = useState('');
    const { debouse } = useDebouse();
 
+
    useEffect(() => {
       switch (category) {
          case 'salgados':
@@ -93,7 +94,7 @@ export const CategoryOne = () => {
    }
 
    const handledeletes = (id: number) => {
-      if (confirm("Realment deseja Apagar?")) {
+      if (confirm("Realmente deseja Apagar?")) {
          switch (category) {
             case 'salgados':
                SalgadosServices.deleteById(id).then(result => {
@@ -151,8 +152,8 @@ export const CategoryOne = () => {
                <Progress isIndeterminate size="xs" colorScheme="gray" />
             </Box>}
             <Wrap spacing="20px">
-               {data && data.map(item => (
-                  <CardCustom handledelete={() => handledeletes(item.id)} key={item.title} card={item} />
+               {data && data.map((item, index) => (
+                  <CardCustom handledelete={() => handledeletes(item.id)} key={index} card={item} />
                ))}
 
             </Wrap>

@@ -21,6 +21,9 @@ export const HomeCard = ({ card }: HomeCardProps) => {
                paddingY=".3rem"
             >{card.title}</Heading>
             <Text
+
+               minH="350px"
+               flex="1"
                fontSize="1rem"
                color="whiteAlpha.600"
             >

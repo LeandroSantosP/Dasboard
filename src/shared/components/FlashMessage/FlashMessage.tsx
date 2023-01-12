@@ -17,7 +17,7 @@ export const FlashMessage = ({ message, bgColor = "green.100" }: FlashMessagePro
             borderRadius=".5rem"
             width="200px"
             height="70px"
-            left="47rem"
+            left="45rem"
             top=".5rem"
             display="flex"
             justifyContent="center"
