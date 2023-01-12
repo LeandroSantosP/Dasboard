@@ -1,15 +1,15 @@
 import { generateAccessToken } from "../../shared/services/TokenGenerator/TokenGenerator";
 import { IFormErros } from "../../shared/components/DashModal/typeError";
+import { RegisterProps, RegisterServicesForms } from "./registerType";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { useAuthContext } from "../../shared/context/AuthContext";
 import { customScrollball } from '../../shared/styles/hellpes'
-import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { VInput } from "../../shared/components/Forms";
+import { RegisterFotmSchema } from "./yupSchema";
 import { FormHandles } from "@unform/core";
-import { RegisterProps, RegisterServicesForms } from "./registerType";
 import { Form } from "@unform/web";
 import { useRef } from "react";
-import { RegisterFotmSchema } from "./yupSchema";
-import * as yup from 'yup'
+import * as yup from 'yup';
 
 export const Resgister = ({ handleLogin }: RegisterProps) => {
    const { register } = useAuthContext();
@@ -24,7 +24,7 @@ export const Resgister = ({ handleLogin }: RegisterProps) => {
                FormRef.current?.setFieldError('email', 'Email ja existente!');
                return;
             } else {
-               alert("Conta criada com sucesso")
+               alert("Conta criada com sucesso");
                handleLogin();
             }
 

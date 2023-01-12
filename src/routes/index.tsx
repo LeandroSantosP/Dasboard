@@ -6,6 +6,7 @@ import { MdFastfood } from 'react-icons/md'
 import { MdOutlineDashboard } from 'react-icons/md'
 import { CategoryOne, LoginAuth } from "../pages/";
 import { useAuthContext } from "../shared/context/AuthContext";
+import { Home } from "../pages/Home/Home";
 
 export const AppRoutes = () => {
    const { setSideBarOptions } = useSideBarContext();
@@ -39,8 +40,9 @@ export const AppRoutes = () => {
 
    return (
       <Routes>
+         <Route path="/" element={PrivateRoute(Home)} />
          <Route path="/category/:id" element={PrivateRoute(CategoryOne)} />
-         <Route path="*" element={PrivateRoute(CategoryOne)} />
+         <Route path="*" element={PrivateRoute(Home)} />
       </Routes>
    )
 } 

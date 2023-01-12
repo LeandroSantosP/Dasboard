@@ -3,13 +3,13 @@ import React, { useState } from "react"
 
 interface LayoutDefault {
    children: React.ReactNode;
-   title: string | undefined;
+   title?: string | undefined;
 
    toolbar?: React.ReactNode;
 }
 export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
    return (
-      <Box display="flex" flexDirection="column" height="100%" w="full" >
+      <Box display="flex" flexDirection="column" height="100%" w="full">
          <Box
             display="flex"
             alignItems="center"

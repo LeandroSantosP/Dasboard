@@ -15,9 +15,12 @@ import {
 import { BiLogOut } from 'react-icons/bi'
 import { Navigation } from "../SideMenu/Navigation/Navigation";
 import { useAuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
-   const { logout, userData } = useAuthContext();
+   const { logout } = useAuthContext();
+   const navigation = useNavigate()
+
 
    return (
       <Flex p="20px"
@@ -27,13 +30,15 @@ export const Header = () => {
          bgColor="gray.300"
       >
          <Heading fontSize="4rem">
-            <CiBurger />
+            <CiBurger onClick={() => navigation("/")} cursor="pointer" />
          </Heading>
          <Flex
-
+            whiteSpace="nowrap"
+            overflow="hidden"
+            textOverflow="ellipsis"
             direction="column"
             flex="1"
-            display={["none", "block"]}
+         // display={["none", "block"]}
          >
             <Text
                overflow="hidden"
@@ -45,7 +50,6 @@ export const Header = () => {
                whiteSpace="nowrap"
                textOverflow="ellipsis"
                fontWeight="bold">O melho e-comerce que voce irar conhecer!</Text>
-
          </Flex>
          <Box
             onClick={logout}

@@ -145,14 +145,18 @@ export const CategoryOne = () => {
 
 
       }>
-         <Progress value={80} isIndeterminate colorScheme='#ff0000' />
+
          <Box display="flex" flexDirection="column" w="full" >
+            {isLoading && <Box bgColor="red" width="full" >
+               <Progress isIndeterminate size="xs" colorScheme="gray" />
+            </Box>}
             <Wrap spacing="20px">
                {data && data.map(item => (
                   <CardCustom handledelete={() => handledeletes(item.id)} key={item.title} card={item} />
                ))}
 
             </Wrap>
+
 
             <Box
                marginY="2rem"

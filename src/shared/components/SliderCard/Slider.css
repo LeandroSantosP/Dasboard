@@ -1,0 +1,36 @@
+.swiper {
+  padding: 32px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #718096;
+}
+
+.swiper-button-prev {
+  color: #718096;
+}
+
+.swiper-button-next {
+  color: #718096;
+}
+
+.swiper-container {
+  width: 480px;
+}
+
+@media screen and (min-width: 640px) {
+  .swiper-container {
+    width: 640px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .swiper-container {
+    width: 768px;
+  }
+}
