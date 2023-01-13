@@ -60,17 +60,18 @@ const deleteById = async (id: number): Promise<void | Error> => {
    try {
       await Api.delete(`/sanduiches/${id}`);
 
+      return;
    } catch (err) {
       console.log(err);
       return new Error((err as { message: string }).message || 'Erro ao deletar o regristro')
    }
 }
 
-
 const updatdById = async (id: number, dados: handleSubmitProps): Promise<void | Error> => {
    try {
       await Api.put(`/sanduiches/${id}`, dados);
 
+      return;
    } catch (err) {
       console.log(err);
       return new Error((err as { message: string }).message || 'Erro ao deletar o regristro')

@@ -47,6 +47,9 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
 
    const oldValue = resquestGetAll(id, category);
 
+   console.log(oldValue);
+
+
    const handleSubmit = (data: handleSubmitProps) => {
       formValidationSchema.validate(data, { abortEarly: false })
          .then((validateData) => {
@@ -54,7 +57,8 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                case 'salgados':
                   SalgadosServices.updatdById(Number(id), { id: Number(id), ...validateData }).then(result => {
                      if (result instanceof Error) {
-                        setError(result.message)
+                        setError(result.message);
+                        return;
                      } else {
                         flashMessageTimeout()
                      }
@@ -64,7 +68,8 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                case 'pizzas':
                   PizzasServices.updatdById(Number(id), { id: Number(id), ...validateData }).then(result => {
                      if (result instanceof Error) {
-                        setError(result.message)
+                        setError(result.message);
+                        return;
                      } else {
                         flashMessageTimeout()
                      }
@@ -75,6 +80,7 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                   SanduichesServices.updatdById(Number(id), { id: Number(id), ...validateData }).then(result => {
                      if (result instanceof Error) {
                         setError(result.message)
+                        return;
                      } else {
                         flashMessageTimeout()
                      }
@@ -94,8 +100,6 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
             }
          })
    };
-
-   console.log(showFlasMessage);
 
 
    return (
@@ -136,7 +140,6 @@ export const UpdataModal = ({ handleUpdateCard, id }: UpdateModalProps) => {
                <Box width="full" display="flex" justifyContent="space-evenly" paddingRight="2rem" >
                   <Box>
                      <VSelect name="available" />
-
                   </Box>
                   <Box>
                      <Button type='submit' height="50px" border="2px solid #111" borderRadius="4px" _hover={{ bgColor: "green.200", transition: ".3s" }}>Salvar</Button>
