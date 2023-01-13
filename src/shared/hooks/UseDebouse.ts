@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react"
 
 export const useDebouse = (deley = 300, notDelayInFrisTime = true) => {
-   const deboucing = useRef<NodeJS.Timeout>();
+   const deboucing = useRef<any>();
    const isFristTime = useRef<boolean>(notDelayInFrisTime);
 
    const debouse = useCallback((func: () => void) => {

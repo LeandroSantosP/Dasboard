@@ -6,7 +6,6 @@ import { AppRoutes } from './routes';
 import { SideBarProvider } from './shared/context';
 import { LoginAuth } from './pages';
 import { AuthProvider } from './shared/context/AuthContext';
-import { Resgister } from './pages/Register/Register';
 
 function App() {
 
