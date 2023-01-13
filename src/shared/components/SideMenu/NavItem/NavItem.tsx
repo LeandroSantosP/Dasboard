@@ -12,6 +12,8 @@ interface NavItemProps {
    data: NavigationItem[];
 }
 
+
+//Nav item
 export const NavItem = (navOptions: NavItemProps) => {
    const navigation = useNavigate();
 
