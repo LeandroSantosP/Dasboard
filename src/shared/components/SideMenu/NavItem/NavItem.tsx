@@ -12,7 +12,7 @@ interface NavItemProps {
 }
 
 export const NavItem = (navOptions: NavItemProps) => {
-const navigation = useNavigate();
+
    return (
       <Box display="flex" flexDirection="column" gap={5} w="full" mt={3}>
          {navOptions && navOptions.data.map(item => (
@@ -32,7 +32,7 @@ const navigation = useNavigate();
                   background: "#111",
                   color: "#fff   ",
                }}
-               onClick={() => navigation(item.path)}>
+               href={item.path}>
                <Text fontSize={20}>
                   {item.icon}
                </Text>
