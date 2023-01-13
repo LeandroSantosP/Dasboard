@@ -196,6 +196,18 @@
       "password": "senha123123",
       "email": "exemple@exemple.com",
       "id": 2
+    },
+    {
+      "access_token": "oauchqso9j",
+      "address": {
+        "city": "São Paulo",
+        "state": "SP",
+        "country": "Brasil"
+      },
+      "telephone": 99999999999,
+      "password": "senha123123",
+      "email": "test@test.com",
+      "id": 3
     }
   ]
 }
