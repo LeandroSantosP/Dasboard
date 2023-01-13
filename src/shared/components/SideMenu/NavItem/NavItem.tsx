@@ -1,4 +1,5 @@
 import { Link as LinkChakra, Box, Text } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom';
 
 export interface NavigationItem {
    type: string;
@@ -12,6 +13,7 @@ interface NavItemProps {
 }
 
 export const NavItem = (navOptions: NavItemProps) => {
+   const navigation = useNavigate();
 
    return (
       <Box display="flex" flexDirection="column" gap={5} w="full" mt={3}>
@@ -32,7 +34,7 @@ export const NavItem = (navOptions: NavItemProps) => {
                   background: "#111",
                   color: "#fff   ",
                }}
-               href={item.path}>
+               onClick={() => navigation(item.path)}>
                <Text fontSize={20}>
                   {item.icon}
                </Text>

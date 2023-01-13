@@ -1,7 +1,7 @@
 import axios from "axios";
 import { errorInterceptor, ResponseInterceptor } from "./interceptors";
 
-const BASE_URL = "https://json-server-ebon.vercel.app"
+const BASE_URL = "http://localhost:3000"
 
 export const Api = axios.create({
    baseURL: BASE_URL
