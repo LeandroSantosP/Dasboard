@@ -2,7 +2,6 @@ import { List, ListIcon as ListItem } from "@chakra-ui/react";
 import { useSideBarContext } from "../../../context";
 import { NavItem } from "../NavItem/NavItem";
 import React from "react";
-//coments test
 export const Navigation = () => {
    const { sidebarOptions } = useSideBarContext();
 
