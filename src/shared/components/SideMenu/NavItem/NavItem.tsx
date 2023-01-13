@@ -12,8 +12,7 @@ interface NavItemProps {
    data: NavigationItem[];
 }
 
-
-//Nav item
+/* Add a new comment */
 export const NavItem = (navOptions: NavItemProps) => {
    const navigation = useNavigate();
    //test
