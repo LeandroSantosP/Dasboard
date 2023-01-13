@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }: LoginProviderProps) => {
    }, []);
 
 
-   //Register Camp;
+   //Register Campp;
 
    const handleRegister = useCallback(async (dados: RegisterServicesProps) => {
 
