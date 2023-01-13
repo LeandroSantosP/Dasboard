@@ -34,6 +34,7 @@ export const VInput: React.FC<InputProps> = ({ name, title, padding = ".5rem", .
          <input
             {...rest}
             ref={inputRef}
+            value={defaultValue}
             onKeyDown={() => clearError()}
             defaultValue={defaultValue}
             style={{ color: "#111", borderRadius: ".3rem", width: "100%", padding: padding, border: "1px solid #111" }}

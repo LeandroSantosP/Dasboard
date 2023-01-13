@@ -7,7 +7,7 @@ export const RegisterFotmSchema: yup.SchemaOf<RegisterServicesForms> = yup.objec
       .required('Senha Obrigatoria.')
       .min(8, 'Senha e muito curta! - Deve conter no minimo 8 caracteres!.')
       .matches(/[a-zA-Z]/, 'A senha só pode conter letras latinas!'),
-   telephone: yup.number().required('Obrigatorio!'),
+   telephone: yup.number().min(11, 'Minimo de 11 digitos!').required('Obrigatorio!'),
    address: yup.object().shape({
       city: yup.string().required('Obrigatorio!'),
       state: yup.string().required('Obrigatorio!'),

@@ -4,7 +4,7 @@ import { CardCustom, CustomCardProps } from "../../shared/components/Card";
 import { HomeCard } from "../../shared/components/Card/HomeCard";
 import { Slide, Slider, SliderProps } from "../../shared/components/SliderCard"
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import bannerUsed from './banner.json'
+import bannerUsed from './animation.json'
 
 import { Api } from "../../shared/services/axios-config";
 
@@ -86,7 +86,7 @@ export const Home: React.FC = () => {
             alignItems="center"
          >
             <Lottie animationData={bannerUsed} style={style} lottieRef={lottieRef} />
-            <Text variant="subtitle" fontSize="3rem" color="#ffff" position="absolute" top="1rem">
+            <Text variant="subtitle" fontSize={["rem", "3rem"]} color="#ffff" position="absolute" top="1rem">
                Company Name
             </Text>
          </Box >

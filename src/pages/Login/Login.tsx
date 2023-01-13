@@ -2,7 +2,6 @@ import { Box, Button, Flex, Heading, Image, Text, VStack } from "@chakra-ui/reac
 import { FormHandles } from "@unform/core";
 import { Form } from "@unform/web";
 import { useEffect, useRef, useState } from "react";
-import { } from "../../assets/banner.jpg"
 import { VInput } from "../../shared/components/Forms";
 import { useAuthContext } from "../../shared/context/AuthContext";
 import * as yup from 'yup'

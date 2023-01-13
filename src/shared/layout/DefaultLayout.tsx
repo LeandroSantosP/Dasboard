@@ -1,5 +1,5 @@
-import { Box, Button, Flex, Grid, Heading } from "@chakra-ui/react"
-import React, { useState } from "react"
+import { Box, Flex, Heading } from "@chakra-ui/react"
+import React from "react"
 
 interface LayoutDefault {
    children: React.ReactNode;
@@ -9,7 +9,8 @@ interface LayoutDefault {
 }
 export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
    return (
-      <Box display="flex" flexDirection="column" height="100%" w="full">
+      <Flex display="flex" flexDirection="column" height="100%" w="full">
+
          <Box
             display="flex"
             alignItems="center"
@@ -26,9 +27,10 @@ export const LayoutDefault = ({ children, title, toolbar }: LayoutDefault) => {
          </Box>
 
 
-         <Flex direction="column" width="full" flex="1">
+         <Flex direction="column" w="full" height="1500px" flex="1">
+
             {children}
          </Flex>
-      </Box >
+      </Flex >
    )
 }
